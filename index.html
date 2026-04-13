@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiệp mời tốt nghiệp</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease;
+    }
+
+    h1 { font-size: 24px; margin-bottom: 10px; }
+    h2 { font-size: 20px; margin: 15px 0; }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 15px;
+      outline: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+      color: #333;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover { transform: scale(1.05); }
+
+    #invite { display: none; margin-top: 20px; }
+
+    .highlight {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>🎓 Graduation Invitation</h1>
+  <p>Nhập mã để xem thiệp mời của bạn</p>
+
+  <input type="text" id="code" placeholder="Nhập mã của bạn...">
+  <button onclick="checkCode()">Mở thiệp</button>
+
+  <div id="invite">
+    <h2>Xin chào <span id="name" class="highlight"></span> 👋</h2>
+    <p>Bạn được trân trọng mời tham dự</p>
+    <h2>🎉 Lễ tốt nghiệp 🎉</h2>
+
+    <p>📅 Thời gian: <b>01/07/2026 - 18:00</b></p>
+    <p>📍 Địa điểm: <b>Hội trường lớn</b></p>
+
+    <p style="margin-top:15px">Sự có mặt của bạn là niềm vinh dự của mình ❤️</p>
+  </div>
+</div>
+
+<script>
+  const guests = {
+    "abc123": "Nguyễn Văn A",
+    "xyz789": "Trần Thị B",
+    "vip001": "Lê Hoàng C"
+  };
+
+  function checkCode() {
+    const code = document.getElementById("code").value.trim();
+
+    if (guests[code]) {
+      document.getElementById("name").innerText = guests[code];
+      document.getElementById("invite").style.display = "block";
+    } else {
+      alert("Sai mã hoặc chưa có trong danh sách!");
+    }
+  }
+</script>
+
+</body>
+</html>
